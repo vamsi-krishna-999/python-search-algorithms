@@ -1,0 +1,39 @@
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1  # Not found
+
+# Example usage:
+arr = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+target = 12
+result = binary_search(arr, target)
+if result != -1:
+    print(f"Element {target} is present at index {result}.")
+else:
+    print("Element is not present in array.")
+
+
+
+
+
+
+Explanation:
+We define a function binary_search(arr, target) that takes a sorted array arr and a target value target as input.
+We initialize two pointers, low and high, to the start and end of the array respectively.
+Inside a while loop, we calculate the middle index of the array using mid = (low + high) // 2.
+We compare the target value with the middle element of the array.
+Depending on the comparison, we update the search interval by adjusting low and high.
+We repeat the process until either the target value is found or the search interval becomes empty.
+If the target value is found, we return its index. Otherwise, we return -1 to indicate that the target value is not present in the array.
+
+
+

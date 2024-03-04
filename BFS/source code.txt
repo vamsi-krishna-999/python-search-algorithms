@@ -1,0 +1,79 @@
+from collections import defaultdict, deque
+
+class Graph:
+    def __init__(self):
+        self.graph = defaultdict(list)
+
+    def add_edge(self, u, v):
+        self.graph[u].append(v)
+
+    def bfs(self, start_node):
+        # Mark all the vertices as not visited
+        visited = {node: False for node in self.graph}
+
+        # Create a queue for BFS
+        queue = deque()
+
+        # Mark the start node as visited and enqueue it
+        visited[start_node] = True
+        queue.append(start_node)
+
+        # Loop to traverse the graph
+        while queue:
+            # Dequeue a vertex from queue and print it
+            current_node = queue.popleft()
+            print(current_node, end=" ")
+
+            # Get all adjacent vertices of the dequeued vertex current_node.
+            # If an adjacent vertex has not been visited, then mark it visited
+            # and enqueue it
+            for neighbor in self.graph[current_node]:
+                if not visited[neighbor]:
+                    visited[neighbor] = True
+                    queue.append(neighbor)
+
+# Example usage
+if __name__ == "__main__":
+    # Create a graph
+    g = Graph()
+    g.add_edge(0, 1)
+    g.add_edge(0, 2)
+    g.add_edge(1, 2)
+    g.add_edge(2, 0)
+    g.add_edge(2, 3)
+    g.add_edge(3, 3)
+
+    print("BFS traversal starting from node 2:")
+    g.bfs(2)
+
+
+
+
+
+Graph class: 
+This class represents the graph data structure.
+It uses a defaultdict to create an adjacency 
+list where each vertex maps to a list of its neighboring vertices.
+
+add_edge method: 
+
+This method adds an edge between two vertices u and v in the graph.
+
+bfs method: 
+This method implements the Breadth-First Search algorithm. 
+It takes a starting node as input and performs BFS traversal 
+from that node. It uses a boolean dictionary visited to keep 
+track of visited nodes and a deque queue to store nodes to be visited.
+
+The BFS algorithm starts by marking the start node as visited and enqueuing it. 
+Then, it iterates through the nodes in the queue, dequeues a node, prints it,
+and enqueues its unvisited neighbors. This process continues until the queue 
+becomes empty.
+
+Example usage: An example usage of the Graph class is provided, 
+where edges are added to create a sample graph, and 
+BFS traversal is performed starting from node 2.
+
+
+
+

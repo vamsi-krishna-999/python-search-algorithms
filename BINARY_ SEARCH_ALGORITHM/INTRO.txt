@@ -1,0 +1,63 @@
+Binary Search Algorithm:
+
+Binary search is a search algorithm used to find the position 
+of a target value within a sorted array. It repeatedly divides 
+the search interval in half until the target value is 
+found or the interval is empty.
+
+Procedure:
+
+Choose the middle element of the array.
+If the middle element is equal to the target value, return its index.
+If the target value is less than the middle element, repeat the search on the left half of the array.
+If the target value is greater than the middle element, repeat the search on the right half of the array.
+Continue dividing the search interval in half until the target value is found or the interval is empty.
+
+
+Example:
+
+arr = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1  # Not found
+
+# Test the binary search algorithm
+arr = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+target = 12
+result = binary_search(arr, target)
+if result != -1:
+    print(f"Element {target} is present at index {result}.")
+else:
+    print("Element is not present in array.")
+
+
+
+
+
+
+Element 12 is present at index 5.
+
+
+
+
+
+
+
+Practical Applications:
+
+Binary search is widely used in programming contests and competitive programming tasks.
+It's used in database systems for efficient searching and indexing.
+Binary search is utilized in some sorting algorithms and data structures.
+It's used in operating systems and file systems for fast searching operations.

@@ -1,0 +1,20 @@
+
+Breadth-First Search (BFS) is a fundamental algorithm used for traversing or searching tree or graph data structures. It explores nodes level by level, starting from the root node (or any arbitrary node in the case of a graph). BFS explores all nodes at the present depth before moving on to nodes at the next depth level.
+
+Here's how BFS works:
+
+Start at the Root Node: BFS starts by visiting the root node of the tree or the starting node of the graph. This node is added to a queue to keep track of the nodes that need to be visited.
+
+Visit Neighboring Nodes: BFS then visits all the neighboring nodes of the current node. Neighboring nodes are those that are directly connected to the current node by an edge. These neighboring nodes are added to the queue if they have not been visited yet.
+
+Explore Level by Level: After visiting all the neighbors of the current node, BFS moves on to the next level of nodes. It continues this process until all nodes in the graph or tree have been visited.
+
+Use a Queue: BFS utilizes a queue data structure to keep track of the nodes that need to be visited. This ensures that nodes are visited in the order they were discovered, i.e., in a level-by-level manner.
+
+Mark Visited Nodes: To avoid revisiting nodes and getting stuck in infinite loops (especially in the case of cyclic graphs), BFS marks each visited node as "visited" to ensure it is not processed again.
+
+Termination: BFS terminates when the queue becomes empty, indicating that all reachable nodes have been visited.
+
+BFS is commonly used for tasks such as finding the shortest path between two nodes in an unweighted graph, finding connected components in a graph, and solving puzzles like the "sliding puzzle" or "maze" problems.
+
+One of the main advantages of BFS is that it always finds the shortest path between the starting node and any other reachable node in an unweighted graph, assuming all edge weights are equal. However, BFS can require a lot of memory because it needs to store all the nodes at the current level in the queue. Additionally, BFS may not be as efficient as other algorithms for searching in very large graphs due to its memory requirements.

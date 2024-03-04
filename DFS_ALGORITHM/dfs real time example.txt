@@ -1,0 +1,53 @@
+In network routing, Depth-First Search (DFS) can be utilized to find 
+routes or paths between nodes in a network. The network can be 
+represented as a graph, where nodes represent network devices 
+(routers, switches, servers) and edges represent connections 
+between these devices.
+
+Let's consider a simplified example where we have a 
+small network with routers connected to each :
+
+       A
+      / \
+     B   C
+    / \ / \
+   D   E   F
+
+
+Nodes A, B, C, D, E, and F represent routers in the network.
+The edges between nodes represent connections between routers.
+
+Router A is connected to routers B and C,
+router B is connected to routers D and E, and so on.
+
+Now, let's say we want to find a path from router A to router F using DFS.
+
+
+DFS Algorithm for Network Routing:
+
+Start at the source node (router A in this case).
+Visit the source node and mark it as visited.
+Explore the adjacent unvisited nodes (routers) from the current node (router). Choose one of the adjacent unvisited nodes arbitrarily.
+Repeat step 3 recursively until the destination node (router F) is reached or until all possible paths have been explored.
+If the destination node is reached, the path from the source node to the destination node is found.
+Backtrack to the previous node if there are no more unvisited adjacent nodes to explore.
+Example:
+
+Let's perform DFS starting from router A and find a path to router F:
+
+Start at router A.
+Visit router A and mark it as visited.
+Explore the adjacent unvisited nodes from router A. Let's say we choose router B.
+Visit router B and mark it as visited.
+Explore the adjacent unvisited nodes from router B. Let's say we choose router D.
+Visit router D and mark it as visited.
+Explore the adjacent unvisited nodes from router D. There are no unvisited nodes, so backtrack to router B.
+Explore the remaining adjacent unvisited node from router B, which is router E.
+Visit router E and mark it as visited.
+Explore the adjacent unvisited nodes from router E. There are no unvisited nodes, so backtrack to router B.
+Since router B has no more unvisited adjacent nodes, backtrack to router A.
+Explore the remaining adjacent unvisited node from router A, which is router C.
+Visit router C and mark it as visited.
+Explore the adjacent unvisited nodes from router C. Let's say we choose router F.
+Visit router F and mark it as visited. The destination node is reached.
+The path from router A to router F is: A -> B -> D -> E -> C -> F
